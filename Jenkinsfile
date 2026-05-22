@@ -45,7 +45,7 @@ pipeline {
 
         /* ===================== Build Maven Stage ===================== */
         stage('Build') {
-            agent { label 'workernode2' }
+            agent { label 'workernode1' }
             
                     
             steps {
