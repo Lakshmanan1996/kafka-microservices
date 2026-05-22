@@ -51,24 +51,24 @@ pipeline {
             steps {
                 unstash 'source-code'
 
-                
+
                 
                 dir('base-domains') {
-                    sh 'mvn clean install -DskipTests'
+                    sh 'mvn clean package -DskipTests'
                 }
                 
                 
                 
                 dir('order-service') {
-                    sh 'mvn clean install -DskipTests'
+                    sh 'mvn clean package -DskipTests'
                 }
                 
                 dir('stock-service') {
-                    sh 'mvn clean install -DskipTests'
+                    sh 'mvn clean package -DskipTests'
                 }
 
                 dir('email-service') {
-                    sh 'mvn clean install -DskipTests'
+                    sh 'mvn clean package -DskipTests'
                 }
             }
         }
