@@ -50,20 +50,24 @@ pipeline {
                     
             steps {
                 unstash 'source-code'
+
+                
                 
                 dir('base-domains') {
                     sh 'mvn clean install -DskipTests'
                 }
                 
-                dir('email-service') {
-                    sh 'mvn clean install -DskipTests'
-                }
+                
                 
                 dir('order-service') {
                     sh 'mvn clean install -DskipTests'
                 }
                 
                 dir('stock-service') {
+                    sh 'mvn clean install -DskipTests'
+                }
+
+                dir('email-service') {
                     sh 'mvn clean install -DskipTests'
                 }
             }
@@ -267,10 +271,10 @@ pipeline {
 
     post {
         success {
-            echo "✅ kafka-microservices CI Pipeline SUCCESS."
+            echo "✅ kafka-microservices CI Pipeline SUCCESS"
         }
         failure {
-            echo "❌ kafka-microservices CI Pipeline FAILED."
+            echo "❌ kafka-microservices CI Pipeline FAILED"
         }
     }
 }
